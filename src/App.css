@@ -1,0 +1,131 @@
+/* (Paste the entire CSS I gave you above here) */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(300deg, #151d3d, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+.container {
+  background: #fff;
+  width: 100%;
+  max-width: 400px;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 25px 30px rgba(11, 6, 22, 0.737);
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 3rem;
+  color: #4a148c;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 2px solid #8a77a7;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #46267e;
+  outline: none;
+  box-shadow: 0 0 5px rgba(126, 87, 194, 0.5);
+}
+
+button {
+  padding: 0.9rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #7e57c2;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 8px 15px rgba(37, 25, 56, 0.614);
+}
+
+button:hover {
+  background: #43267e;
+  box-shadow: 0 10px 20px rgba(94, 53, 177, 0.6);
+}
+
+p {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+a {
+  color: #7e57c2;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #4a148c;
+  text-decoration: underline;
+}
+
+.dashboard-container {
+  max-width: 600px;
+  padding: 2rem 3rem;
+  background: #fff;
+  border-radius: 13px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.dashboard-container h2 {
+  color: #4a148c;
+  margin-bottom: 1rem;
+}
+
+.dashboard-container p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-container button {
+  background: #e53935;
+  box-shadow: 0 8px 15px rgba(229, 57, 53, 0.4);
+}
+
+.dashboard-container button:hover {
+  background: #b71c1c;
+  box-shadow: 0 10px 20px rgba(183, 28, 28, 0.6);
+}
+
+@media (max-width: 480px) {
+  .container, .dashboard-container {
+    margin: 1rem;
+    width: 100%;
+    padding: 2rem 1.5rem;
+  }
+}
