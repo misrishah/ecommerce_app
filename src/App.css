@@ -1,4 +1,4 @@
-/* (Paste the entire CSS I gave you above here) */
+/* App.css */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,6 +15,14 @@ body {
   color: #333;
 }
 
+.App {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container {
   background: #fff;
   width: 100%;
@@ -23,6 +31,18 @@ body {
   border-radius: 12px;
   box-shadow: 0 25px 30px rgba(11, 6, 22, 0.737);
   text-align: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.dashboard-container {
+  background: #fff;
+  width: 100%;
+  max-width: 600px;
+  padding: 2.5rem 3rem;
+  border-radius: 13px;
+  box-shadow: 0 25px 30px rgba(11, 6, 22, 0.737);
+  text-align: center;
+  animation: fadeIn 0.3s ease-out;
 }
 
 h2 {
@@ -32,6 +52,21 @@ h2 {
   letter-spacing: 2.5px;
   text-transform: uppercase;
 }
+
+h3 {
+  color: #4a148c;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h4 {
+margin-top: 1.25rem;
+  font-size: 0.95 yesrem;
+  color: #666;
+}
+
 
 form {
   display: flex;
@@ -46,7 +81,7 @@ input[type="password"] {
   border-radius: 8px;
   border: 2px solid #8a77a7;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 input[type="text"]:focus,
@@ -55,6 +90,12 @@ input[type="password"]:focus {
   border-color: #46267e;
   outline: none;
   box-shadow: 0 0 5px rgba(126, 87, 194, 0.5);
+}
+
+input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 button {
@@ -66,13 +107,32 @@ button {
   font-weight: 600;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
   box-shadow: 0 8px 15px rgba(37, 25, 56, 0.614);
 }
 
-button:hover {
+button:hover:not(:disabled) {
   background: #43267e;
   box-shadow: 0 10px 20px rgba(94, 53, 177, 0.6);
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Dashboard logout button specific styling */
+.dashboard-container button {
+  background: #43267e;
+  box-shadow: 0 8px 15px rgba(67, 24, 116, 0.536);
+  margin-top: 2rem;
+}
+
+.dashboard-container button:hover:not(:disabled) {
+  background: #211240;
+  box-shadow: 0 10px 20px rgba(37, 13, 82, 0.686);
 }
 
 p {
@@ -93,39 +153,78 @@ a:hover {
   text-decoration: underline;
 }
 
-.dashboard-container {
-  max-width: 600px;
-  padding: 2rem 3rem;
-  background: #fff;
-  border-radius: 13px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-  text-align: center;
+/* Dashboard specific styles */
+.user-info {
+  background: rgba(90, 68, 129, 0.1);
+  padding: 1.2rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+  border: 2px solid rgba(79, 51, 127, 0.318);
 }
 
-.dashboard-container h2 {
+.user-info p {
+  text-align: left;
+  margin: 0.5rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.user-info strong {
   color: #4a148c;
-  margin-bottom: 1rem;
+  font-weight: 600;
 }
 
-.dashboard-container p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
+/* Loading state */
+.loading {
+  color: #666;
+  font-style: italic;
 }
 
-.dashboard-container button {
-  background: #e53935;
-  box-shadow: 0 8px 15px rgba(229, 57, 53, 0.4);
+/* Animation for page transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.dashboard-container button:hover {
-  background: #b71c1c;
-  box-shadow: 0 10px 20px rgba(183, 28, 28, 0.6);
-}
-
+/* Responsive design */
 @media (max-width: 480px) {
-  .container, .dashboard-container {
+  .container, 
+  .dashboard-container {
     margin: 1rem;
-    width: 100%;
+    width: calc(100% - 2rem);
     padding: 2rem 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 2rem;
+  }
+  
+  .user-info {
+    padding: 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  button {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .container,
+  .dashboard-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
   }
 }
