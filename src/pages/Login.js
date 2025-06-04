@@ -1,73 +1,115 @@
 import React, { useState } from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import { useNavigate, Link } from 'react-router-dom';
+import { loginUser } from '../services/authService';
 import '../App.css';
 
-function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
+const Login = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [loginMessage, setLoginMessage] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  const formik = useFormik({
+    initialValues: {
+      username: '',
+      password: ''
+    },
+    validationSchema: Yup.object({
+      username: Yup.string().required('Username or Email is required'),
+      password: Yup.string().required('Password is required')
+    }),
+    onSubmit: async (values, { setSubmitting, setErrors }) => {
+      setIsLoading(true);
+      setLoginMessage('');
+      
+      try {
+        // Try to login with username first
+        let user = null;
+        
+        try {
+          user = await loginUser(values.username, values.password);
+        } catch (error) {
+          // If username login fails, try with email
+          try {
+            user = await loginUser(values.username, values.password, true); // email login
+          } catch (emailError) {
+            throw new Error('Invalid credentials');
+          }
+        }
 
-    try {
-      const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-      console.log('Stored users:', storedUsers);
-
-      const existingUser = storedUsers.find(
-        user =>
-          (user.username === username || user.email === username) &&
-          user.password === password
-      );
-      console.log('Found user:', existingUser);
-
-      if (existingUser) {
-        alert('Login successful!');
-        localStorage.setItem('username', existingUser.username);
-        localStorage.setItem('token', 'dummy-auth-token');
-        navigate('/dashboard', { replace: true });
-      } else {
-        alert('Invalid username/email or password.');
+        if (user) {
+          // Store user info in localStorage (you can modify this as needed)
+          localStorage.setItem('username', user.username);
+          localStorage.setItem('token', 'dummy-auth-token'); // You can generate a proper token
+          localStorage.setItem('user', JSON.stringify(user));
+          
+          setLoginMessage('Login successful! Redirecting...');
+          setTimeout(() => {
+            navigate('/dashboard', { replace: true });
+          }, 1000);
+        }
+      } catch (error) {
+        console.error('Login error:', error);
+        setLoginMessage('Invalid username/email or password');
+        setErrors({ 
+          username: 'Invalid credentials', 
+          password: ' ' 
+        });
+      } finally {
+        setIsLoading(false);
+        setSubmitting(false);
       }
-    } catch (error) {
-      console.error('Login error:', error);
-      alert('An error occurred during login. Please try again.');
-    } finally {
-      setLoading(false);
     }
-  };
+  });
 
   return (
     <div className="container">
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      
+      {loginMessage && (
+        <div className={`message ${loginMessage.includes('successful') ? 'success' : 'error'}`}>
+          {loginMessage}
+        </div>
+      )}
+      
+      <form onSubmit={formik.handleSubmit}>
         <input
           type="text"
+          name="username"
           placeholder="Username or Email"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-          required
-          disabled={loading}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.username}
+          disabled={isLoading}
         />
+        {formik.touched.username && formik.errors.username ? (
+          <div className="error">{formik.errors.username}</div>
+        ) : null}
+        
         <input
           type="password"
+          name="password"
           placeholder="Password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required
-          disabled={loading}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.password}
+          disabled={isLoading}
         />
-        <button type="submit" disabled={loading}>
-          {loading ? 'Logging in...' : 'Login'}
+        {formik.touched.password && formik.errors.password ? (
+          <div className="error">{formik.errors.password}</div>
+        ) : null}
+        
+        <button type="submit" disabled={formik.isSubmitting || isLoading}>
+          {isLoading ? 'Logging in...' : 'Login'}
         </button>
       </form>
+      
       <p>
         Don't have an account? <Link to="/register">Register here</Link>
       </p>
     </div>
   );
-}
+};
 
 export default Login;

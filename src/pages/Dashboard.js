@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Dashboard() {
   const [user, setUser] = useState(null);
@@ -9,11 +10,12 @@ function Dashboard() {
   const handleLogout = useCallback(() => {
     localStorage.removeItem('username');
     localStorage.removeItem('token');
+    localStorage.removeItem('user'); // optional cleanup
     navigate('/login', { replace: true });
   }, [navigate]);
 
   useEffect(() => {
-    const checkAuthentication = () => {
+    const checkAuthentication = async () => {
       const token = localStorage.getItem('token');
       const username = localStorage.getItem('username');
 
@@ -22,19 +24,23 @@ function Dashboard() {
         return;
       }
 
-      // Get user details from stored users
-      const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-      const currentUser = storedUsers.find(u => u.username === username);
-      
-      if (currentUser) {
-        setUser(currentUser);
-      } else {
-        // User not found in stored users, logout
-        handleLogout();
-        return;
-      }
+      try {
+        const response = await axios.get('http://localhost:5000/users');
+        const users = response.data;
 
-      setLoading(false);
+        const currentUser = users.find(u => u.username === username);
+
+        if (currentUser) {
+          setUser(currentUser);
+        } else {
+          handleLogout();
+        }
+      } catch (error) {
+        console.error('Error fetching users:', error);
+        handleLogout();
+      } finally {
+        setLoading(false);
+      }
     };
 
     checkAuthentication();
@@ -49,7 +55,7 @@ function Dashboard() {
   }
 
   if (!user) {
-    return null; // Will redirect to login
+    return null; // will redirect to login
   }
 
   return (
@@ -62,7 +68,6 @@ function Dashboard() {
         <p><strong>Username:</strong> {user.username}</p>
         <p><strong>Email:</strong> {user.email}</p>
         <p><strong>Full Name:</strong> {user.firstName} {user.lastName}</p>
-        
       </div>
       
       <button onClick={handleLogout}>Logout</button>
