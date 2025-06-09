@@ -17,6 +17,24 @@
       "email": "misri.s@indianic.com",
       "password": "inic123",
       "createdAt": "2025-06-04T12:14:06.044Z"
+    },
+    {
+      "id": "a794",
+      "firstName": "Misri",
+      "lastName": "Shah",
+      "username": "misri.03",
+      "email": "misri.shah03@gmail.com",
+      "password": "mi@034",
+      "createdAt": "2025-06-05T06:57:38.735Z"
+    },
+    {
+      "id": "c428",
+      "firstName": "asd",
+      "lastName": "qwe",
+      "username": "as.1",
+      "email": "ax1@gmail.com",
+      "password": "asd123",
+      "createdAt": "2025-06-05T12:49:30.631Z"
     }
   ]
 }
