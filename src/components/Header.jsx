@@ -1,8 +1,9 @@
 // Header.js
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './Header.css'; // Make sure this path is correct!
-import { AiOutlineShoppingCart } from 'react-icons/ai';
+import './Header.css';
+import { AiOutlineShoppingCart, AiOutlineHeart, AiOutlineUser } from 'react-icons/ai';
+
 function Header() {
   const navigate = useNavigate();
   const isAuthenticated = !!localStorage.getItem('token');
@@ -17,25 +18,51 @@ function Header() {
       <div className="header__logo">
         <Link to="/">QuickCart</Link>
       </div>
+
       <nav className="header__nav">
         <Link to="/home">Home</Link>
         <Link to="/products">Products</Link>
         <Link to="/categories">Categories</Link>
       </nav>
-      <div className="header__search">
-        <input type="text" placeholder="Search products..." />
-        {!isAuthenticated ? (
+
+      <div className="header__right">
+        <div className="header__search">
+          <input type="text" placeholder="Search products..." />
+        </div>
+
+        {isAuthenticated ? (
+          <>
+            <Link to="/dashboard" className="header__btn">My Account</Link>
+
+            {/* Wishlist */}
+            <Link to="/wishlist" className="header__icon">
+              <AiOutlineHeart size={22} />
+              <span>1</span> {/* Replace with dynamic count */}
+            </Link>
+
+            {/* User Dropdown */}
+            <div className="header__dropdown">
+              <button className="header__btn">
+                <AiOutlineUser size={22} />
+              </button>
+              <div className="header__dropdown-content">
+                <Link to="/profile">Profile</Link>
+                <Link to="/orders">Orders</Link>
+                <button onClick={handleLogout}>Logout</button>
+              </div>
+            </div>
+          </>
+        ) : (
           <>
             <Link to="/login" className="header__btn">Login</Link>
             <Link to="/register" className="header__btn">Register</Link>
           </>
-        ) : (
-          <button className="header__btn" onClick={handleLogout}>Logout</button>
         )}
-{/* ✅ Cart Icon */}
+
+        {/* Cart Icon */}
         <Link to="/cart" className="header__icon">
-          <AiOutlineShoppingCart size={24} />
-          <span>0</span> {/* You can dynamically show cart count here */}
+          <AiOutlineShoppingCart size={25} />
+          <span>0</span> {/* Replace with dynamic cart count */}
         </Link>
       </div>
     </header>
