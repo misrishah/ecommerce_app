@@ -1,26 +1,25 @@
-
 .footer {
   background-color: #f4f0fa;
   color: #4a148c;
-  width: 100vw; /* Force full screen width */
+  width: 100%;
   font-family: 'Segoe UI', sans-serif;
   margin-top: auto;
 }
 
 .footer-container {
-  max-width: 1200px; /* Keeps content aligned like header */
+  max-width: 1130px;
   margin: 0 auto;
-  padding: 0 10px; /* Only padding inside the container */
+  padding: 30px 20px;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
-  margin-bottom: 30px;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: nowrap; /* 💥 DO NOT WRAP in large screens */
 }
 
 .footer-section {
   flex: 1;
-  min-width: 200px;
+  min-width: 0;
 }
 
 .footer-section h4 {
@@ -47,46 +46,68 @@
 }
 
 .footer-section ul li a {
-  color: #4a148c;
+  color: #3a0b72c4;
   text-decoration: none;
   font-size: 14px;
   transition: color 0.3s ease;
 }
 
 .footer-section ul li a:hover {
-  color: #7e3fbf;
+  color: #904ad6;
 }
 
 /* Newsletter Section */
-.newsletter-form {
+.newsletter-form.vertical {
   display: flex;
-  gap: 8px;
+  flex-direction: column;
+  gap: 10px;
   margin-top: 10px;
+  width: 100%;
 }
 
-.newsletter-form input {
-  flex: 1;
-  padding: 10px;
+.newsletter-form.vertical input {
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 14px;
-  min-width: 150px;
+  outline: none;
 }
 
-.newsletter-form button {
-  padding: 10px 16px;
+.newsletter-form.vertical button {
+  all: unset;
+  padding: 12px 20px;
   background-color: #4a148c;
   color: white;
-  border: none;
   border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
   cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-  white-space: nowrap;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.newsletter-form button:hover {
-  background-color: #7e3fbf;
+.newsletter-form.vertical button:hover {
+  background-color: #a67cc5;
+  transform: translateY(-2px);
+}
+
+/* Payment Icons */
+.payment-methods {
+  margin-top: 10px;
+}
+
+.payment-icons {
+  display: flex;
+  gap: 15px;
+  font-size: 32px;
+  color: #4a148c;
+  margin-top: 8px;
+}
+
+.payment-icons i:hover {
+  color: #a67cc5;
+  transition: color 0.3s ease;
 }
 
 /* Footer Bottom */
@@ -94,6 +115,7 @@
   border-top: 1px solid #d1b3f2;
   padding-top: 20px;
   text-align: center;
+  margin-top: 20px;
 }
 
 .footer-bottom p {
@@ -102,50 +124,14 @@
   color: #666;
 }
 
-/* Responsive Design */
+/* ✅ Responsive Layout */
 @media (max-width: 768px) {
-  .footer {
-    padding: 30px 15px 15px;
-  }
-  
   .footer-container {
     flex-direction: column;
-    gap: 25px;
+    flex-wrap: wrap;
   }
-  
-  .footer-section {
-    min-width: auto;
+
+  .newsletter-form.vertical {
+    max-width: 100%;
   }
-  
-  .newsletter-form {
-    flex-direction: column;
-  }
-  
-  .newsletter-form input {
-    min-width: auto;
-    margin-bottom: 8px;
-  }
-}
-
-/* To ensure footer stays at bottom of page */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
-}
-
-.main-content {
-  flex: 1;
-}
-
-/* Alternative: If you're using a wrapper div for your main content */
-.page-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.content-wrapper {
-  flex: 1;
 }

@@ -37,9 +37,22 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Newsletter</h4>
           <p>Subscribe for latest offers:</p>
+        <div className="newsletter-form vertical">
           <input type="email" placeholder="Your email" />
           <button type="button">Subscribe</button>
         </div>
+      </div>
+
+        {/* Payment Methods */}
+        <div className="footer-section payment-methods">
+          <h4>We Accept</h4>
+          <div className="payment-icons">
+            <i className="fab fa-cc-visa"></i>
+            <i className="fab fa-cc-mastercard"></i>
+            <i className="fab fa-cc-paypal"></i>
+          </div>
+        </div>
+
 
         {/* Social Links */}
         <div className="footer-section">
