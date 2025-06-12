@@ -1,0 +1,68 @@
+/* components/ProductListing/ProductCard.css */
+.product-card {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 220px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.product-info h4 {
+  font-size: 16px;
+  color: #333;
+  margin: 5px 0;
+}
+
+.product-info p {
+  color: #4a148c;
+  font-weight: bold;
+}
+
+.rating {
+  font-size: 14px;
+  color: #ff9529;
+}
+
+.product-actions {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.product-actions button {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cart-btn {
+  background-color: #4a148c;
+  color: white;
+}
+
+.quick-view-btn {
+  background-color: #ccc;
+  color: #333;
+}
+
+.wishlist-btn {
+  background: none;
+  font-size: 20px;
+}
