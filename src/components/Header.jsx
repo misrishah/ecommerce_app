@@ -32,7 +32,7 @@ function Header() {
 
         {isAuthenticated ? (
           <>
-            <Link to="/dashboard" className="header__btn">My Account</Link>
+            <Link to="/myAccount" className="header__btn">My Account</Link>
 
             {/* Wishlist */}
             <Link to="/wishlist" className="header__icon">
@@ -46,7 +46,7 @@ function Header() {
                 <AiOutlineUser size={22} />
               </button>
               <div className="header__dropdown-content">
-                <Link to="/profile">Profile</Link>
+                <Link to="/dashboard">Profile</Link>
                 <Link to="/orders">Orders</Link>
                 <button onClick={handleLogout}>Logout</button>
               </div>

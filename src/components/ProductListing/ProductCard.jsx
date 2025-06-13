@@ -1,26 +1,27 @@
 // components/ProductListing/ProductCard.jsx
 import React from 'react';
-import './ProductCard.css'; // Optional for styling
+import './ProductCard.css';
 
-const ProductCard = ({ product, onQuickView, onAddToCart, onToggleWishlist, isWishlisted }) => {
-  const { id, title, price, image, rating } = product;
-
+const ProductCard = ({
+  product,
+  onQuickView,
+  onAddToCart,
+  onWishlistToggle,
+  isAuthenticated,
+}) => {
   return (
     <div className="product-card">
-      <img src={image} alt={title} className="product-img" />
-      
-      <div className="product-info">
-        <h4>{title}</h4>
-        <p>₹{price.toFixed(2)}</p>
-        <div className="rating">⭐ {rating}</div>
-      </div>
+      <img src={product.image} alt={product.title} className="product-img" />
+      <h3 className="product-title">{product.title}</h3>
+      <p className="product-price">₹{product.price}</p>
+      <p className="product-rating">⭐ {product.rating}</p>
 
       <div className="product-actions">
-        <button onClick={() => onAddToCart(id)} className="cart-btn">🛒 Add</button>
-        <button onClick={() => onQuickView(product)} className="quick-view-btn">👁 Quick View</button>
-        <button onClick={() => onToggleWishlist(id)} className="wishlist-btn">
-          {isWishlisted ? '💜' : '🤍'}
-        </button>
+        <button className="quick-view-btn" onClick={() => onQuickView(product)}>Quick View</button>
+        <button className="add-to-cart-btn" onClick={() => onAddToCart(product)}>Add to Cart</button>
+        {isAuthenticated && (
+          <button className="wishlist-btn" onClick={() => onWishlistToggle(product)}>❤️</button>
+        )}
       </div>
     </div>
   );

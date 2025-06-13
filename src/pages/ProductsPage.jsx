@@ -37,7 +37,7 @@ const ProductsPage = () => {
   const [sortedProducts, setSortedProducts] = useState(sampleProducts);
   const [selectedProduct, setSelectedProduct] = useState(null); // for modal
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 6;
+  const productsPerPage = 2;
 
   const handleSortChange = (sortBy) => {
     const sorted = [...sortedProducts].sort((a, b) => {

@@ -1,0 +1,14 @@
+/* components/ProductListing/ProductGrid.css */
+.product-grid.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-grid.list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}

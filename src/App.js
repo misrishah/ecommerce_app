@@ -1,3 +1,4 @@
+import ProtectedRoute from './components/ProtectedRoute';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
@@ -5,15 +6,14 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
+import ProductsPage from './pages/ProductsPage'; // ✅ New import
+
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css';
 
-// Protected Route Component
-function ProtectedRoute({ children }) {
-  const isAuthenticated = !!localStorage.getItem('token');
-  return isAuthenticated ? children : <Navigate to="/login" replace />;
-}
+
 
 // Public Route Component (redirects authenticated users)
 function PublicRoute({ children }) {
@@ -28,11 +28,12 @@ function AppContent() {
   // Routes where header/footer should not be shown
   const hideHeaderFooterRoutes = ['/login', '/register'];
   const showHeaderFooter = !hideHeaderFooterRoutes.includes(location.pathname);
+console.log("✅ ProductsPage type:", typeof ProductsPage);
 
   return (
     <div className="page-wrapper">
       {showHeaderFooter && <Header />}
-      
+
       <div className="content-wrapper">
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />} />
@@ -69,6 +70,16 @@ function AppContent() {
             element={
               <ProtectedRoute>
                 <Home />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* ✅ New route for Product Listing Page */}
+          <Route
+            path="/products"
+            element={
+              <ProtectedRoute>
+                <ProductsPage />
               </ProtectedRoute>
             }
           />
