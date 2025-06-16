@@ -3,10 +3,15 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 import { AiOutlineShoppingCart, AiOutlineHeart, AiOutlineUser } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
 
 function Header() {
   const navigate = useNavigate();
   const isAuthenticated = !!localStorage.getItem('token');
+
+  // Get cart and wishlist count from Redux store
+  const cartCount = useSelector((state) => state.cart.cartItems.length);
+  const wishlistCount = useSelector((state) => state.wishlist.wishlistItems.length);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -37,7 +42,7 @@ function Header() {
             {/* Wishlist */}
             <Link to="/wishlist" className="header__icon">
               <AiOutlineHeart size={22} />
-              <span>1</span> {/* Replace with dynamic count */}
+              <span>{wishlistCount}</span>
             </Link>
 
             {/* User Dropdown */}
@@ -62,7 +67,7 @@ function Header() {
         {/* Cart Icon */}
         <Link to="/cart" className="header__icon">
           <AiOutlineShoppingCart size={25} />
-          <span>0</span> {/* Replace with dynamic cart count */}
+          <span>{cartCount}</span>
         </Link>
       </div>
     </header>

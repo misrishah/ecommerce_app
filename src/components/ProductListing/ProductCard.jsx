@@ -1,14 +1,15 @@
 // components/ProductListing/ProductCard.jsx
 import React from 'react';
 import './ProductCard.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../../store/cartSlice';
+import { toggleWishlist } from '../../store/wishlistSlice';
 
-const ProductCard = ({
-  product,
-  onQuickView,
-  onAddToCart,
-  onWishlistToggle,
-  isAuthenticated,
-}) => {
+const ProductCard = ({ product, onQuickView, isAuthenticated }) => {
+  const dispatch = useDispatch();
+  const wishlistItems = useSelector((state) => state.wishlist.wishlistItems);
+  const isWishlisted = wishlistItems.some((item) => item.id === product.id);
+
   return (
     <div className="product-card">
       <img src={product.image} alt={product.title} className="product-img" />
@@ -17,10 +18,16 @@ const ProductCard = ({
       <p className="product-rating">⭐ {product.rating}</p>
 
       <div className="product-actions">
-        <button className="quick-view-btn" onClick={() => onQuickView(product)}>Quick View</button>
-        <button className="add-to-cart-btn" onClick={() => onAddToCart(product)}>Add to Cart</button>
+        <button className="quick-view-btn" onClick={() => onQuickView(product)}>
+          Quick View
+        </button>
+        <button className="add-to-cart-btn" onClick={() => dispatch(addToCart(product))}>
+          Add to Cart
+        </button>
         {isAuthenticated && (
-          <button className="wishlist-btn" onClick={() => onWishlistToggle(product)}>❤️</button>
+          <button className="wishlist-btn" onClick={() => dispatch(toggleWishlist(product))}>
+            {isWishlisted ? '💖' : '❤️'}
+          </button>
         )}
       </div>
     </div>

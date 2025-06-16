@@ -1,6 +1,5 @@
-// components/ProductListing/SortBar.jsx
 import React from 'react';
-import './SortBar.css'; // Optional: you can style it
+import './SortBar.css';
 
 const SortBar = ({ onSortChange, viewMode, setViewMode }) => {
   return (
@@ -10,13 +9,13 @@ const SortBar = ({ onSortChange, viewMode, setViewMode }) => {
           className={viewMode === 'grid' ? 'active' : ''}
           onClick={() => setViewMode('grid')}
         >
-          🔳 Grid
+          🔳 <span>Grid</span>
         </button>
         <button
           className={viewMode === 'list' ? 'active' : ''}
           onClick={() => setViewMode('list')}
         >
-          📋 List
+          📋 <span>List</span>
         </button>
       </div>
 

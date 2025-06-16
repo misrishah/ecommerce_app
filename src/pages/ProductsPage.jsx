@@ -1,10 +1,15 @@
 // pages/ProductsPage.jsx
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../redux/slices/cartSlice';
+import { toggleWishlist } from '../redux/slices/wishlistSlice';
+
 import ProductCard from '../components/ProductListing/ProductCard';
 import SortBar from '../components/ProductListing/SortBar';
 import Pagination from '../components/ProductListing/Pagination';
 import QuickViewModal from '../components/ProductListing/QuickViewModal';
-import '../components/ProductListing/ProductGrid.css'; // style file
+
+import '../components/ProductListing/ProductGrid.css';
 
 // Dummy products (replace later with real API)
 const sampleProducts = [
@@ -29,16 +34,46 @@ const sampleProducts = [
     price: 499,
     rating: 4.2,
   },
-  // ...add more
+  {
+    id: 4,
+    title: 'Wired Headphones',
+    image: 'https://via.placeholder.com/150',
+    price: 369,
+    rating: 4.1,
+  },
+  {
+    id: 5,
+    title: 'Television',
+    image: 'https://via.placeholder.com/150',
+    price: 22199,
+    rating: 3.5,
+  },
+  {
+    id: 6,
+    title: 'Laptop',
+    image: 'https://via.placeholder.com/150',
+    price: 31499,
+    rating: 4.6,
+  },
+  {
+    id: 7,
+    title: 'Smart Watch',
+    image: 'https://via.placeholder.com/150',
+    price: 1700,
+    rating: 4.2,
+  },
 ];
 
 const ProductsPage = () => {
+  const dispatch = useDispatch();
+
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
   const [sortedProducts, setSortedProducts] = useState(sampleProducts);
-  const [selectedProduct, setSelectedProduct] = useState(null); // for modal
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 2;
+  const productsPerPage = 4;
 
+  // Handlers
   const handleSortChange = (sortBy) => {
     const sorted = [...sortedProducts].sort((a, b) => {
       if (sortBy === 'price') return a.price - b.price;
@@ -49,9 +84,18 @@ const ProductsPage = () => {
     setSortedProducts(sorted);
   };
 
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+
+  const handleWishlistToggle = (product) => {
+    dispatch(toggleWishlist(product));
+  };
+
   const handleQuickView = (product) => setSelectedProduct(product);
   const handleCloseModal = () => setSelectedProduct(null);
 
+  // Pagination logic
   const indexOfLast = currentPage * productsPerPage;
   const indexOfFirst = indexOfLast - productsPerPage;
   const currentProducts = sortedProducts.slice(indexOfFirst, indexOfLast);
@@ -59,7 +103,11 @@ const ProductsPage = () => {
   return (
     <div className="products-page">
       <div className="products-header">
-        <SortBar onSortChange={handleSortChange} viewMode={viewMode} setViewMode={setViewMode} />
+        <SortBar
+          onSortChange={handleSortChange}
+          viewMode={viewMode}
+          setViewMode={setViewMode}
+        />
       </div>
 
       <div className={`products-container ${viewMode}`}>
@@ -68,9 +116,9 @@ const ProductsPage = () => {
             key={product.id}
             product={product}
             onQuickView={handleQuickView}
-            onAddToCart={() => console.log('Add to cart:', product)}
-            onWishlistToggle={() => console.log('Toggle wishlist:', product)}
-            isAuthenticated={true} // later: fetch from context/auth
+            onAddToCart={handleAddToCart}
+            onWishlistToggle={handleWishlistToggle}
+            isAuthenticated={true}
           />
         ))}
       </div>
