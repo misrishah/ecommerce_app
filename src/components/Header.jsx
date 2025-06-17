@@ -1,4 +1,4 @@
-// Header.js
+// src/components/Header.jsx
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
@@ -9,7 +9,7 @@ function Header() {
   const navigate = useNavigate();
   const isAuthenticated = !!localStorage.getItem('token');
 
-  // Get cart and wishlist count from Redux store
+  // ✅ Dynamic counts from Redux store
   const cartCount = useSelector((state) => state.cart.cartItems.length);
   const wishlistCount = useSelector((state) => state.wishlist.wishlistItems.length);
 

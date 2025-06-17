@@ -16,20 +16,24 @@ const ProductCard = ({ product, onQuickView, isAuthenticated }) => {
       <h3 className="product-title">{product.title}</h3>
       <p className="product-price">₹{product.price}</p>
       <p className="product-rating">⭐ {product.rating}</p>
+      <p className="product-date">
+  Added on: {new Date(product.createdAt).toLocaleDateString()}
+</p>
 
-      <div className="product-actions">
-        <button className="quick-view-btn" onClick={() => onQuickView(product)}>
-          Quick View
-        </button>
-        <button className="add-to-cart-btn" onClick={() => dispatch(addToCart(product))}>
-          Add to Cart
-        </button>
-        {isAuthenticated && (
-          <button className="wishlist-btn" onClick={() => dispatch(toggleWishlist(product))}>
-            {isWishlisted ? '💖' : '❤️'}
-          </button>
-        )}
-      </div>
+     <div className="product-actions">
+  <button className="quick-view-btn" onClick={() => onQuickView(product)}>
+    Quick View
+  </button>
+  <button className="add-to-cart-btn" onClick={() => dispatch(addToCart(product))}>
+    Add to Cart
+  </button>
+  {isAuthenticated && (
+    <button className="wishlist-btn" onClick={() => dispatch(toggleWishlist(product))}>
+      {isWishlisted ? '❤️' : '♡'}
+    </button>
+  )}
+</div>
+
     </div>
   );
 };

@@ -1,8 +1,8 @@
 // pages/ProductsPage.jsx
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../redux/slices/cartSlice';
-import { toggleWishlist } from '../redux/slices/wishlistSlice';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../store/cartSlice';
+import { addToWishlist} from '../store/wishlistSlice';
 
 import ProductCard from '../components/ProductListing/ProductCard';
 import SortBar from '../components/ProductListing/SortBar';
@@ -11,77 +11,43 @@ import QuickViewModal from '../components/ProductListing/QuickViewModal';
 
 import '../components/ProductListing/ProductGrid.css';
 
-// Dummy products (replace later with real API)
-const sampleProducts = [
-  {
-    id: 1,
-    title: 'Wooden Table',
-    image: 'https://via.placeholder.com/150',
-    price: 999,
-    rating: 4.5,
-  },
-  {
-    id: 2,
-    title: 'Gaming Chair',
-    image: 'https://via.placeholder.com/150',
-    price: 1499,
-    rating: 4.8,
-  },
-  {
-    id: 3,
-    title: 'Bluetooth Headphones',
-    image: 'https://via.placeholder.com/150',
-    price: 499,
-    rating: 4.2,
-  },
-  {
-    id: 4,
-    title: 'Wired Headphones',
-    image: 'https://via.placeholder.com/150',
-    price: 369,
-    rating: 4.1,
-  },
-  {
-    id: 5,
-    title: 'Television',
-    image: 'https://via.placeholder.com/150',
-    price: 22199,
-    rating: 3.5,
-  },
-  {
-    id: 6,
-    title: 'Laptop',
-    image: 'https://via.placeholder.com/150',
-    price: 31499,
-    rating: 4.6,
-  },
-  {
-    id: 7,
-    title: 'Smart Watch',
-    image: 'https://via.placeholder.com/150',
-    price: 1700,
-    rating: 4.2,
-  },
-];
-
-const ProductsPage = () => {
+const ProductsPage = () => {   
   const dispatch = useDispatch();
 
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
-  const [sortedProducts, setSortedProducts] = useState(sampleProducts);
+  const [products, setProducts] = useState([]);
+  const [sortedProducts, setSortedProducts] = useState([]);
+  const [viewMode, setViewMode] = useState('grid');
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 4;
+  const productsPerPage = 3;
 
-  // Handlers
+  // Fetch from db.json
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch('http://localhost:5000/products');
+        const data = await res.json();
+        setProducts(data);
+        setSortedProducts(data);
+      } catch (error) {
+        console.error('Failed to fetch products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  // Sort handler
   const handleSortChange = (sortBy) => {
-    const sorted = [...sortedProducts].sort((a, b) => {
+    const sorted = [...products].sort((a, b) => {
       if (sortBy === 'price') return a.price - b.price;
       if (sortBy === 'rating') return b.rating - a.rating;
       if (sortBy === 'name') return a.title.localeCompare(b.title);
+          if (sortBy === 'date') return new Date(b.createdAt) - new Date(a.createdAt); // Sort
       return 0;
     });
     setSortedProducts(sorted);
+    setCurrentPage(1);
   };
 
   const handleAddToCart = (product) => {
@@ -89,7 +55,7 @@ const ProductsPage = () => {
   };
 
   const handleWishlistToggle = (product) => {
-    dispatch(toggleWishlist(product));
+    dispatch(addToWishlist(product)); // or toggle if you implement toggling logic
   };
 
   const handleQuickView = (product) => setSelectedProduct(product);

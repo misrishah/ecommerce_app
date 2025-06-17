@@ -36,5 +36,103 @@
       "password": "asd123",
       "createdAt": "2025-06-05T12:49:30.631Z"
     }
-  ]
+  ],
+  "products": [
+  {
+    "id": 1,
+    "title": "Smart Watch",
+    "image": "https://via.placeholder.com/150",
+    "price": 1700,
+    "rating": 4.2,
+    "createdAt": "2025-06-01T10:15:00Z"
+  },
+  {
+    "id": 2,
+    "title": "Wireless Headphones",
+    "image": "https://via.placeholder.com/150",
+    "price": 2499,
+    "rating": 4.5,
+    "createdAt": "2024-11-22T14:45:00Z"
+  },
+  {
+    "id": 3,
+    "title": "Bluetooth Speaker",
+    "image": "https://via.placeholder.com/150",
+    "price": 1399,
+    "rating": 4.0,
+    "createdAt": "2025-02-17T09:30:00Z"
+  },
+  {
+    "id": 4,
+    "title": "Fitness Band",
+    "image": "https://via.placeholder.com/150",
+    "price": 999,
+    "rating": 4.3,
+    "createdAt": "2024-09-05T11:10:00Z"
+  },
+  {
+    "id": 5,
+    "title": "Gaming Mouse",
+    "image": "https://via.placeholder.com/150",
+    "price": 1199,
+    "rating": 4.1,
+    "createdAt": "2025-03-08T16:20:00Z"
+  },
+  {
+    "id": 6,
+    "title": "Mechanical Keyboard",
+    "image": "https://via.placeholder.com/150",
+    "price": 2499,
+    "rating": 4.6,
+    "createdAt": "2024-12-12T18:40:00Z"
+  },
+  {
+    "id": 7,
+    "title": "Laptop Stand",
+    "image": "https://via.placeholder.com/150",
+    "price": 799,
+    "rating": 4.0,
+    "createdAt": "2025-01-25T08:55:00Z"
+  },
+  {
+    "id": 8,
+    "title": "LED Desk Lamp",
+    "image": "https://via.placeholder.com/150",
+    "price": 599,
+    "rating": 4.4,
+    "createdAt": "2024-10-30T13:05:00Z"
+  },
+  {
+    "id": 9,
+    "title": "External Hard Drive",
+    "image": "https://via.placeholder.com/150",
+    "price": 3500,
+    "rating": 4.5,
+    "createdAt": "2025-04-11T12:10:00Z"
+  },
+  {
+    "id": 10,
+    "title": "USB-C Hub",
+    "image": "https://via.placeholder.com/150",
+    "price": 999,
+    "rating": 4.2,
+    "createdAt": "2024-08-15T07:50:00Z"
+  },
+  {
+    "id": 11,
+    "title": "Noise Cancelling Earbuds",
+    "image": "https://via.placeholder.com/150",
+    "price": 2999,
+    "rating": 4.3,
+    "createdAt": "2025-05-02T17:35:00Z"
+  },
+  {
+    "id": 12,
+    "title": "Portable Charger",
+    "image": "https://via.placeholder.com/150",
+    "price": 1500,
+    "rating": 4.0,
+    "createdAt": "2024-07-19T15:00:00Z"
+  }
+]
 }
