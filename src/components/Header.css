@@ -1,3 +1,4 @@
+/* Header Wrapper */
 .header {
   position: fixed;
   top: 0;
@@ -37,7 +38,7 @@
   color: #4a148c;
 }
 
-/* Right Section */
+/* Right Section (search + icons + buttons) */
 .header__right {
   display: flex;
   align-items: center;
@@ -55,12 +56,12 @@
 }
 
 .header__search input:focus {
-  border-color:#4a148c;
+  border-color: #4a148c;
   outline: none;
   box-shadow: 0 0 4px rgba(106, 27, 154, 0.3);
 }
 
-/* Main Button (e.g. My Account) */
+/* Main Button (Login, Register, My Account) */
 .header__btn {
   background-color: #4a148c;
   color: white;
@@ -74,28 +75,31 @@
 }
 
 .header__btn:hover {
-  background-color:  #a67cc5;
+  background-color: #a67cc5;
 }
 
-/* Icons like Cart, Wishlist, Profile */
+/* Icons (Cart, Wishlist) - Common Style */
 .header__icon {
   position: relative;
   color: #4a148c;
   font-size: 20px;
   padding: 6px;
-  border-radius: 6px;
+  border-radius: 8px;
   transition: background-color 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f3e5f5;
+  border: none;
+  cursor: pointer;
 }
 
+/* 🔁 Hover color update */
 .header__icon:hover {
-  background-color: #e7cfea;
-  color: #4a148c;
+  background-color: #e2cee5 !important; /* force override */
+  color: #4a148c !important;
 }
-
-/* Badge on Icons */
+/* Icon Badge (Cart/Wishlist count) */
 .header__icon span {
   position: absolute;
   top: -6px;
@@ -108,7 +112,7 @@
   font-weight: bold;
 }
 
-/* Dropdown Wrapper */
+/* Profile Dropdown Wrapper */
 .header__dropdown {
   position: relative;
 }
@@ -125,10 +129,10 @@
 
 .header__dropdown .header__btn:hover {
   background-color: #f3e5f5;
-  color:#4a148c;
+  color: #4a148c;
 }
 
-/* Dropdown Content */
+/* Dropdown Content Box */
 .header__dropdown-content {
   position: absolute;
   top: 35px;
@@ -142,7 +146,7 @@
   z-index: 999;
 }
 
-/* Dropdown Links and Buttons */
+/* Dropdown Links/Buttons */
 .header__dropdown-content a,
 .header__dropdown-content button {
   padding: 10px 16px;
