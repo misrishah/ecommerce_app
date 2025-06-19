@@ -5,13 +5,12 @@ import './ProductGrid.css';
 
 const ProductGrid = ({
   products,
-  layout = 'grid', // Accepts 'grid' or 'list'
+  layout = 'grid',
   onQuickView,
   onAddToCart,
   onToggleWishlist,
   wishlist = []
 }) => {
-  // Validate layout fallback just in case
   const appliedLayout = layout === 'list' ? 'list' : 'grid';
 
   return (
@@ -24,7 +23,10 @@ const ProductGrid = ({
           onAddToCart={onAddToCart}
           onToggleWishlist={onToggleWishlist}
           isWishlisted={wishlist.includes(product.id)}
+          viewMode={layout}
+          
         />
+
       ))}
     </div>
   );

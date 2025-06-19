@@ -56,7 +56,8 @@ const CartPopup = ({ onClose }) => {
         )}
                 <div className="cart-buttons">
         <button className="checkout-btn">Checkout</button>
-        <button className="close-btn">Close</button>
+        <button className="close-btn" onClick={onClose}>Close</button>
+
         </div>
 
     
