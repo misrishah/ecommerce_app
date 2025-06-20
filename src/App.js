@@ -7,7 +7,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import ProductsPage from './pages/ProductsPage'; // ✅ New import
-
+import SearchPage from './pages/SearchPage';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -83,6 +83,10 @@ console.log("✅ ProductsPage type:", typeof ProductsPage);
               </ProtectedRoute>
             }
           />
+           <Route 
+              path="/search" 
+              element={<SearchPage />}
+           />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

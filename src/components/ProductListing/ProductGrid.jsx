@@ -9,6 +9,7 @@ const ProductGrid = ({
   onQuickView,
   onAddToCart,
   onToggleWishlist,
+  isAuthenticated,
   wishlist = []
 }) => {
   const appliedLayout = layout === 'list' ? 'list' : 'grid';
@@ -24,7 +25,7 @@ const ProductGrid = ({
           onToggleWishlist={onToggleWishlist}
           isWishlisted={wishlist.includes(product.id)}
           viewMode={layout}
-          
+           isAuthenticated={isAuthenticated} // ✅ add this
         />
 
       ))}

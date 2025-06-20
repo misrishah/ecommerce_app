@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../store/cartSlice';
 import { toggleWishlist } from '../../store/wishlistSlice';
 
-const ProductCard = ({ product, onQuickView, isAuthenticated }) => {
+const ProductCard = ({ product, onQuickView}) => {
   const dispatch = useDispatch();
   const wishlistItems = useSelector((state) => state.wishlist.wishlistItems);
   const isWishlisted = wishlistItems.some((item) => item.id === product.id);
+const isAuthenticated = !!localStorage.getItem('token');
 
   return (
     <div className="product-card">
@@ -28,8 +29,8 @@ const ProductCard = ({ product, onQuickView, isAuthenticated }) => {
     Add to Cart
   </button>
   {isAuthenticated && (
-    <button className="wishlist-btn" onClick={() => dispatch(toggleWishlist(product))}>
-      {isWishlisted ? '❤️' : '♡'}
+    <button className="wishlist-icon-btn" onClick={() => dispatch(toggleWishlist(product))}>
+      {isWishlisted ? '❤️' : '💜'}
     </button>
   )}
 </div>

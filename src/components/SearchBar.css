@@ -1,0 +1,29 @@
+/* src/components/SearchBar.css */
+.search-bar {
+  position: relative;
+}
+
+
+
+.autocomplete-list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 50;
+}
+
+.autocomplete-list li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.autocomplete-list li:hover {
+  background: #f0f0f0;
+}
