@@ -4,31 +4,41 @@ import ProductCard from './ProductCard';
 import './ProductGrid.css';
 
 const ProductGrid = ({
-  products,
+  products = [],
   layout = 'grid',
   onQuickView,
   onAddToCart,
   onToggleWishlist,
   isAuthenticated,
-  wishlist = []
+  wishlist = [],
+  searchTerm = ''  // ✅ default to empty string
 }) => {
   const appliedLayout = layout === 'list' ? 'list' : 'grid';
+  const trimmedSearch = searchTerm.trim().toLowerCase(); // ✅ safe usage
 
   return (
     <div className={`product-grid ${appliedLayout}`}>
-      {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          onQuickView={onQuickView}
-          onAddToCart={onAddToCart}
-          onToggleWishlist={onToggleWishlist}
-          isWishlisted={wishlist.includes(product.id)}
-          viewMode={layout}
-           isAuthenticated={isAuthenticated} // ✅ add this
-        />
+      {products.map((product) => {
+        const isMatch =
+          trimmedSearch === '' ||
+          product.title?.toLowerCase().includes(trimmedSearch) ||
+          product.description?.toLowerCase().includes(trimmedSearch);
 
-      ))}
+        if (!isMatch) return null;
+
+        return (
+          <ProductCard
+            key={product.id}
+            product={product}
+            onQuickView={onQuickView}
+            onAddToCart={onAddToCart}
+            onToggleWishlist={onToggleWishlist}
+            isWishlisted={wishlist.includes(product.id)}
+            viewMode={layout}
+            isAuthenticated={isAuthenticated}
+          />
+        );
+      })}
     </div>
   );
 };

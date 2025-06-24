@@ -59,6 +59,7 @@ const SearchResults = ({ isAuthenticated, onQuickView, onAddToCart, onToggleWish
               onToggleWishlist={onToggleWishlist}
               isAuthenticated={isAuthenticated}
               isWishlisted={wishlist.includes(product.id)}
+              searchTerm={searchTerm}
             />
           ))}
         </div>

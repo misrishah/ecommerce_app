@@ -1,52 +1,28 @@
 // src/components/SearchBar.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SearchService from '../services/searchService';
-import './SearchBar.css';
 
 const SearchBar = () => {
-  const [query, setQuery] = useState('');
-  const [suggestions, setSuggestions] = useState([]);
+  const [input, setInput] = useState('');
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchSuggestions = async () => {
-      if (query.length > 1) {
-        const results = await SearchService.searchProducts(query);
-        setSuggestions(results.slice(0, 5));
-      } else {
-        setSuggestions([]);
-      }
-    };
-    fetchSuggestions();
-  }, [query]);
-
-  const onSearch = (q = query) => {
-    if (q.trim()) {
-      navigate(`/search?q=${encodeURIComponent(q.trim())}`);
-      setSuggestions([]);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (input.trim()) {
+      navigate(`/search?q=${encodeURIComponent(input.trim())}`);
+    } 
   };
 
   return (
-    <div className="search-bar">
+    <form onSubmit={handleSubmit} style={{ display: 'flex' }}>
       <input
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        onKeyDown={(e) => e.key === 'Enter' && onSearch()}
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
         placeholder="Search products..."
       />
-      <button onClick={() => onSearch()}>Search</button>
-      {suggestions.length > 0 && (
-        <ul className="autocomplete-list">
-          {suggestions.map(item => (
-            <li key={item.id} onClick={() => onSearch(item.title)}>
-              {item.title}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+      <button type="submit">Search</button>
+    </form>
   );
 };
 
