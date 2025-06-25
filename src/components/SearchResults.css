@@ -1,7 +1,7 @@
 /* src/components/SearchResults.css */
 .search-results {
   padding: 2rem;
-  background: linear-gradient(to bottom, #4527a0, #7e57c2);
+  background: transparent;
   min-height: 100vh;
   color: white;
 }

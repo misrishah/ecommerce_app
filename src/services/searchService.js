@@ -1,21 +1,28 @@
 // src/services/searchService.js
-const API_BASE = 'https://dummyjson.com';
+import axios from 'axios';
+
+const BASE_URL = 'http://localhost:5000'; // json-server default
 
 const searchProducts = async (query) => {
-  const res = await fetch(`${API_BASE}/products/search?q=${encodeURIComponent(query)}`);
-  const data = await res.json();
-  return data.products;
+  try {
+    const res = await axios.get(`${BASE_URL}/products`);
+    const allProducts = res.data;
+
+    // Do the filtering here
+    const filtered = allProducts.filter((product) =>
+      product.title.toLowerCase().includes(query.toLowerCase())
+    );
+
+    return filtered;
+  } catch (error) {
+    console.error("Error searching products:", error);
+    return [];
+  }
 };
 
-const getAllProducts = async (limit = 1000, skip = 0) => {
-  const res = await fetch(`${API_BASE}/products?limit=${limit}&skip=${skip}`);
-  const data = await res.json();
-  return data.products;
-};
-
-const SearchService = {
+const searchService = {
   searchProducts,
-  getAllProducts,
 };
 
-export default SearchService;
+export default searchService;
+

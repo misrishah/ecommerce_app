@@ -52,6 +52,7 @@ function Header() {
   const handleSuggestionClick = (value) => {
     setQuery(value);
     setShowSuggestions(false);
+    navigate('/search-results');
   };
 
   const handleBlur = () => {
@@ -74,6 +75,16 @@ function Header() {
         <div className="header__right">
           {/* Search bar */}
           <div className="header__search">
+            <button
+  className="recent-toggle-btn"
+  onClick={() => {
+    setQuery('');
+    setShowSuggestions((prev) => !prev);
+  }}
+>
+  Recent
+</button>
+
             <input
               type="text"
               placeholder="Search products..."

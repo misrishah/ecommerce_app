@@ -1,82 +1,46 @@
-// src/components/SearchResults.jsx
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import SearchService from '../services/searchService';
-import ProductCard from './ProductListing/ProductCard';
+import axios from 'axios';
+import ProductCard from './ProductListing/ProductCard'; // Adjust if your path differs
 import './SearchResults.css';
+import { useSearch } from '../context/SearchContext';
 
-const SearchResults = ({ isAuthenticated, onQuickView, onAddToCart, onToggleWishlist, wishlist }) => {
-  const location = useLocation();
-  const currentQuery = new URLSearchParams(location.search).get('q') || '';
-
-  const [results, setResults] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(currentQuery);
-  const [loading, setLoading] = useState(false);
-  const [popularSearches, setPopularSearches] = useState([]);
+const SearchResults = () => {
+  const { query } = useSearch();
+  const [allProducts, setAllProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    const fetchResults = async () => {
-      if (!currentQuery) return;
-      setLoading(true);
-      try {
-        const products = await SearchService.searchProducts(currentQuery);
-        setResults(products);
-      } catch (err) {
-        console.error('Search error:', err);
-        setResults([]);
-      } finally {
-        setLoading(false);
-      }
-    };
+    axios.get('http://localhost:5000/products')
+      .then((res) => {
+        setAllProducts(res.data);
+      })
+      .catch((err) => console.error('Error fetching products:', err));
+  }, []);
 
-    const loadPopularSearches = () => {
-      // You can customize this logic if needed
-      const dummyPopular = ['phone', 'laptop', 'watch', 'headphones'];
-      setPopularSearches(dummyPopular);
-    };
-
-    setSearchTerm(currentQuery);
-    loadPopularSearches();
-    fetchResults(); // ✅ important!
-  }, [currentQuery]);
+  useEffect(() => {
+    if (!query.trim()) {
+      setFilteredProducts(allProducts);
+    } else {
+      const lowerQuery = query.toLowerCase();
+      const filtered = allProducts.filter(product =>
+        product.title.toLowerCase().includes(lowerQuery)
+      );
+      setFilteredProducts(filtered);
+    }
+  }, [query, allProducts]);
 
   return (
     <div className="search-results">
-      <div className="search-header">
-        <h2>Results for "<span>{searchTerm}</span>"</h2>
+      <h2>Search Results for: <em>{query}</em></h2>
+      <div className="product-grid">
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map(product => (
+            <ProductCard key={product.id} product={product} />
+          ))
+        ) : (
+          <p>No matching products found.</p>
+        )}
       </div>
-
-      {loading ? (
-        <p>Loading...</p>
-      ) : results.length > 0 ? (
-        <div className="results-grid">
-          {results.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onQuickView={onQuickView}
-              onAddToCart={onAddToCart}
-              onToggleWishlist={onToggleWishlist}
-              isAuthenticated={isAuthenticated}
-              isWishlisted={wishlist.includes(product.id)}
-              searchTerm={searchTerm}
-            />
-          ))}
-        </div>
-      ) : (
-        <p className="no-results">No products found for "{searchTerm}"</p>
-      )}
-
-      {popularSearches.length > 0 && (
-        <div className="popular-searches">
-          <h4>Popular searches:</h4>
-          <ul>
-            {popularSearches.map((term) => (
-              <li key={term}>{term}</li>
-            ))}
-          </ul>
-        </div>
-      )}
     </div>
   );
 };

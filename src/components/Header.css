@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 1;
   background-color: white;
   display: flex;
   justify-content: space-between;
@@ -42,7 +42,8 @@
 .header__right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
+   position: relative; 
 }
 
 /* Search Input */
@@ -169,4 +170,66 @@
 /* Show dropdown on hover */
 .header__dropdown:hover .header__dropdown-content {
   display: flex;
+}
+/* Button to show recent searches */
+.recent-toggle-btn {
+  margin-left: 5px;
+  padding: 2px 2px;
+  background-color: #4a148c;
+  border: 1px solid #d0c7d6;
+  border-radius: 1px;
+  font-size: 11px;
+  cursor: pointer;
+  font-weight: 400;
+  transition: background 0.2s ease;
+}
+
+.recent-toggle-btn:hover {
+  background-color: #4a148c;
+}
+
+/* Suggestions dropdown box */
+.search-suggestions {
+  position: relative;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-top: 8px;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(99, 76, 107, 0.683);
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.suggestion-item {
+  padding: 2px;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: center;
+  border-bottom: 1px solid #decfe8ab;
+  transition: background-color 0.2s ease;
+}
+
+.suggestion-item:hover {
+  background-color: #ebd3f4;
+}
+
+/* Label for recent section */
+.recent-label {
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 13.5px;
+  text-align: center;
+  color: #513870;
+  background: #e5d4f0;
+  border-bottom: 1px solid #724d85;
+}
+
+/* Optional styling for recent items */
+.suggestion-item.recent {
+  font-style:normal;
+  color: #555;
 }

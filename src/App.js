@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
-
+import SearchResults from './components/SearchResults';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
@@ -82,7 +82,7 @@ function AppContent() {
           />
 
           <Route path="/search" element={<SearchPage />} /> {/* Optional */}
-
+          <Route path="/search-results" element={<SearchResults />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
