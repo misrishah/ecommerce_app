@@ -3,13 +3,20 @@ import React from 'react';
 import './CartPopup.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, decreaseQuantity, removeFromCart } from '../store/cartSlice';
+import { useNavigate } from 'react-router-dom'; // ✅ Import useNavigate
 
 const CartPopup = ({ onClose }) => {
   const cartItems = useSelector(state => state.cart.cartItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // ✅ Use inside the component
 
   const getTotal = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+  const handleCheckout = () => {
+    onClose(); // Optional: close popup before navigating
+    navigate('/checkout'); // ✅ Go to checkout page
   };
 
   return (
@@ -28,14 +35,12 @@ const CartPopup = ({ onClose }) => {
                   <h4>{item.name}</h4>
                   <p>₹{item.price}</p>
 
-                  {/* Quantity controls */}
                   <div className="quantity-controls">
                     <button onClick={() => dispatch(decreaseQuantity(item.id))}>-</button>
                     <span>{item.quantity}</span>
                     <button onClick={() => dispatch(addToCart(item))}>+</button>
                   </div>
 
-                  {/* Remove button */}
                   <button
                     className="remove-btn"
                     onClick={() => dispatch(removeFromCart(item.id))}
@@ -46,21 +51,20 @@ const CartPopup = ({ onClose }) => {
               </div>
             ))}
 
-            {/* Total and checkout */}
             <div className="cart-total">
               <strong>Total: ₹{getTotal()}</strong>
             </div>
-
-            
           </>
         )}
-                <div className="cart-buttons">
-        <button className="checkout-btn">Checkout</button>
-        <button className="close-btn" onClick={onClose}>Close</button>
 
+        <div className="cart-buttons">
+          <button className="checkout-btn" onClick={handleCheckout}>
+            Checkout
+          </button>
+          <button className="close-btn" onClick={onClose}>
+            Close
+          </button>
         </div>
-
-    
       </div>
     </div>
   );

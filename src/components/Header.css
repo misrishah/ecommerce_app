@@ -233,3 +233,63 @@
   font-style:normal;
   color: #555;
 }
+
+
+/* Suggestion item with pill-like delete */
+.suggestion-item.recent {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 8px;
+  font-size: 13px;
+  color: #4a148c;
+  cursor: pointer;
+  border-bottom: 1px solid #e2dcdc;
+  background-color: #fafafa;
+  transition: background-color 0.2s ease;
+}
+
+.suggestion-item.recent:hover {
+  background-color: #f0e3f6;
+}
+
+/* 'x' remove button - no box */
+.remove-btn {
+  background: none !important;
+ 
+  color: #a91010 !important;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 20px;
+ 
+}
+
+.remove-btn:hover {
+  color: #7a0000 !important;
+  background-color: #e2b6b6 !important;
+}
+
+/* Clean, minimal text link for Clear All */
+.clear-recent-btn {
+  background:none !important;
+  border: none;
+  color:  #801a1a ;
+  font-weight: 400;
+  text-align: left;
+  font-size: 0.7rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s
+}
+
+.clear-recent-btn:hover {
+  color: #4a148c ;
+  background-color:none!important;
+}
+.clear-recent-wrapper {
+  width: 100%;
+  text-align: right;
+  padding: 0px 9px 0px 0;
+  background-color: #fdf9ff;
+}

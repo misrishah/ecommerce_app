@@ -1,0 +1,55 @@
+.checkout-page {
+  max-width: 550px;
+  margin: 100px auto 50px;
+  padding: 40px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fafafa;
+  box-shadow: 1px 1px 32px rgb(17, 6, 36);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.checkout-page h2 {
+  text-align: center;
+  color: #4a148c;
+  margin-bottom: 24px;
+}
+
+.checkout-form label {
+  display: block;
+  font-weight: 600;
+  margin-top: 16px;
+  color: #333333;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 2px;
+  border-radius: 6px;
+  border: 1px solid #4a148c74;
+  font-size: 14px;
+}
+
+.checkout-form textarea {
+  resize: vertical;
+}
+
+.checkout-form button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 5px;
+  background-color: #4a148c;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.checkout-form button:hover {
+  background-color: #4a148c;
+}

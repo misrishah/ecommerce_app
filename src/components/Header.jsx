@@ -20,13 +20,15 @@ function Header() {
   );
   const wishlistCount = useSelector((state) => state.wishlist.wishlistItems.length);
 
-  // Search Context
+  // Search context
   const {
     query,
     setQuery,
     suggestions,
     recent,
-    loading
+    loading,
+    removeRecentItem,
+    clearAllRecent
   } = useSearch();
 
   const handleLogout = () => {
@@ -56,34 +58,37 @@ function Header() {
   };
 
   const handleBlur = () => {
-    setTimeout(() => setShowSuggestions(false), 150); // delay so click works
+    setTimeout(() => setShowSuggestions(false), 150); // slight delay for click
   };
 
   return (
     <>
       <header className="header">
+        {/* Logo */}
         <div className="header__logo">
           <Link to="/">QuickCart</Link>
         </div>
 
+        {/* Nav */}
         <nav className="header__nav">
           <Link to="/home">Home</Link>
           <Link to="/products">Products</Link>
           <Link to="/categories">Categories</Link>
         </nav>
 
+        {/* Right Section */}
         <div className="header__right">
-          {/* Search bar */}
+          {/* Search */}
           <div className="header__search">
             <button
-  className="recent-toggle-btn"
-  onClick={() => {
-    setQuery('');
-    setShowSuggestions((prev) => !prev);
-  }}
->
-  Recent
-</button>
+              className="recent-toggle-btn"
+              onClick={() => {
+                setQuery('');
+                setShowSuggestions((prev) => !prev);
+              }}
+            >
+              Recent
+            </button>
 
             <input
               type="text"
@@ -94,42 +99,57 @@ function Header() {
               onBlur={handleBlur}
             />
 
-            {/* Suggestion dropdown */}
+            {/* Suggestions Box */}
             {showSuggestions && (suggestions.length > 0 || recent.length > 0) && (
               <div className="search-suggestions">
                 {loading && <div className="loading">Loading...</div>}
 
-                {query && suggestions.map((item) => (
-                  <div
-                    key={item.id}
-                    className="suggestion-item"
-                    onClick={() => handleSuggestionClick(item.title)}
-                  >
-                    {item.title}
-                  </div>
-                ))}
+                {/* Searched Suggestions */}
+                {query &&
+                  suggestions.map((item) => (
+                    <div
+                      key={item.id}
+                      className="suggestion-item"
+                      onClick={() => handleSuggestionClick(item.title)}
+                    >
+                      {item.title}
+                    </div>
+                  ))}
 
+                {/* Recent Searches */}
                 {!query && recent.length > 0 && (
                   <>
                     <div className="recent-label">Recent Searches:</div>
+
                     {recent.map((item, idx) => (
-                      <div
-                        key={idx}
-                        className="suggestion-item recent"
-                        onClick={() => handleSuggestionClick(item)}
-                      >
-                        {item}
+                      <div key={idx} className="suggestion-item recent">
+                        <span onClick={() => handleSuggestionClick(item)}>{item}</span>
+                        <button
+                          className="remove-btn"
+                          onClick={() => removeRecentItem(item)}
+                        >
+                          ×
+                        </button>
                       </div>
                     ))}
+
+                   <div className="clear-recent-wrapper">
+                      <button className="clear-recent-btn" onClick={clearAllRecent}>
+                        Clear All
+                      </button>
+                      </div>
                   </>
                 )}
               </div>
             )}
           </div>
 
+          {/* Account Section */}
           {isAuthenticated ? (
             <>
-              <Link to="/myAccount" className="header__btn">My Account</Link>
+              <Link to="/myAccount" className="header__btn">
+                My Account
+              </Link>
 
               <button className="header__icon" onClick={handleWishlistClick}>
                 <AiOutlineHeart size={22} />
@@ -149,8 +169,12 @@ function Header() {
             </>
           ) : (
             <>
-              <Link to="/login" className="header__btn">Login</Link>
-              <Link to="/register" className="header__btn">Register</Link>
+              <Link to="/login" className="header__btn">
+                Login
+              </Link>
+              <Link to="/register" className="header__btn">
+                Register
+              </Link>
             </>
           )}
 

@@ -52,9 +52,9 @@
   margin-top: 1px;
   padding: 2px 4px;
   font-size: 13px;
-  background-color: #930606;
+  background-color: #930606 !important;
   font-weight: 400;
-  color: white;
+  color: white !important;
   border: none;
   border-radius: 6px;
   cursor: pointer;

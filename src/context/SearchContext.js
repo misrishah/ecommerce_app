@@ -58,6 +58,20 @@ const debouncedSearch = useMemo(() =>
   }, 500),
 [performSearch]);
 
+// SearchContext.js
+
+const removeRecentItem = (itemToRemove) => {
+  const updated = recent.filter(item => item !== itemToRemove);
+  setRecent(updated);
+  localStorage.setItem('recentSearches', JSON.stringify(updated));
+};
+
+const clearAllRecent = () => {
+  setRecent([]);
+  localStorage.removeItem('recentSearches');
+};
+
+
 
   useEffect(() => {
     if (query.trim()) {
@@ -72,7 +86,9 @@ const debouncedSearch = useMemo(() =>
       suggestions,
       results,
       loading,
-      recent
+      recent,
+      removeRecentItem,
+      clearAllRecent
     }}>
       {children}
     </SearchContext.Provider>

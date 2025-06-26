@@ -8,10 +8,10 @@ import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import ProductsPage from './pages/ProductsPage';
 import SearchPage from './pages/SearchPage';
-
+import CheckoutPage from './pages/CheckoutPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
-
+import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import { SearchProvider } from './context/SearchContext'; // ✅ Wrap your app with this
 
 import './App.css';
@@ -80,6 +80,14 @@ function AppContent() {
               </ProtectedRoute>
             }
           />
+
+          <Route path="/checkout" element={
+    <ProtectedRoute>
+      <CheckoutPage />
+    </ProtectedRoute>
+  }/>
+<Route path="/order-confirmation" element={<ProtectedRoute><OrderConfirmationPage/></ProtectedRoute>} />
+
 
           <Route path="/search" element={<SearchPage />} /> {/* Optional */}
           <Route path="/search-results" element={<SearchResults />} />
