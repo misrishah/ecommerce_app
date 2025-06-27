@@ -10,16 +10,23 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.confirmation-page h1 {
+  color:  #2d045b;
+  margin-bottom: 2.5rem;
+  font-size:35px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .confirmation-page h2 {
   color: #4a148c;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   font-size: 26px;
 }
 
 .confirmation-page p {
   color: #444;
-  font-size: 16px;
-  margin: 8px 0;
+  font-size: 17px;
+  margin: 1px ;
 }
 
 .confirmation-page .back-home-btn {
@@ -35,6 +42,17 @@
   transition: background 0.3s ease;
 }
 
+.confirmation-page li{
+   color: #444;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.continue-btn{
+  color: #7447ab;
+  margin: 20px;
+  font-size: 0.87rem;
+}
 .confirmation-page .back-home-btn:hover {
   background-color: #7b2dbf;
 }
