@@ -15,6 +15,7 @@ const SearchResults = () => {
   useEffect(() => {
     axios.get('http://localhost:5000/products')
       .then((res) => setAllProducts(res.data))
+      
       .catch((err) => console.error('Error fetching products:', err));
   }, []);
 

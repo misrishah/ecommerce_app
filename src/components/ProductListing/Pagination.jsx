@@ -8,7 +8,7 @@ const Pagination = ({
   currentPage,
   onPageChange,
   onPageSizeChange,
-  pageSizeOptions = [3, 6, 9]
+  pageSizeOptions = [3, 6, 9,12]
 }) => {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   if (totalPages <= 1) return null;

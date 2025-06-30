@@ -9,13 +9,13 @@ const SortBar = ({ onSortChange, viewMode, setViewMode }) => {
           className={viewMode === 'grid' ? 'active' : ''}
           onClick={() => setViewMode('grid')}
         >
-          🔳 <span>Grid</span>
+          🔳<span>Grid</span>
         </button>
         <button
           className={viewMode === 'list' ? 'active' : ''}
           onClick={() => setViewMode('list')}
         >
-          📋 <span>List</span>
+          📋<span>List</span>
         </button>
       </div>
 

@@ -3,20 +3,19 @@ import React from 'react';
 import './CartPopup.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, decreaseQuantity, removeFromCart } from '../store/cartSlice';
-import { useNavigate } from 'react-router-dom'; // ✅ Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
 const CartPopup = ({ onClose }) => {
   const cartItems = useSelector(state => state.cart.cartItems);
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // ✅ Use inside the component
-
+  const navigate = useNavigate(); 
   const getTotal = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
   const handleCheckout = () => {
-    onClose(); // Optional: close popup before navigating
-    navigate('/checkout'); // ✅ Go to checkout page
+    onClose(); 
+    navigate('/checkout'); 
   };
 
   return (

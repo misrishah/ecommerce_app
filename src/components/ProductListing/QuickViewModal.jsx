@@ -12,7 +12,9 @@ const QuickViewModal = ({ product, onClose }) => {
         <div className="modal-body">
           <img src={product.image} alt={product.title} className="modal-image" />
           <div className="modal-details">
+
             <h2>{product.title}</h2>
+            
             <p className="modal-price">₹{product.price}</p>
             <p className="modal-description">{product.description}</p>
             <p className="modal-rating">⭐ {product.rating?.rate} ({product.rating?.count} reviews)</p>

@@ -11,10 +11,10 @@ const ProductGrid = ({
   onToggleWishlist,
   isAuthenticated,
   wishlist = [],
-  searchTerm = ''  // ✅ default to empty string
+  searchTerm = '' 
 }) => {
   const appliedLayout = layout === 'list' ? 'list' : 'grid';
-  const trimmedSearch = searchTerm.trim().toLowerCase(); // ✅ safe usage
+  const trimmedSearch = searchTerm.trim().toLowerCase(); 
 
   return (
     <div className={`product-grid ${appliedLayout}`}>

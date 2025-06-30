@@ -14,6 +14,7 @@ const searchProducts = async (query) => {
     );
 
     return filtered;
+    
   } catch (error) {
     console.error("Error searching products:", error);
     return [];

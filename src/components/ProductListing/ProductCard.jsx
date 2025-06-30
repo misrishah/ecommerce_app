@@ -9,7 +9,7 @@ const ProductCard = ({ product, onQuickView}) => {
   const dispatch = useDispatch();
   const wishlistItems = useSelector((state) => state.wishlist.wishlistItems);
   const isWishlisted = wishlistItems.some((item) => item.id === product.id);
-const isAuthenticated = !!localStorage.getItem('token');
+  const isAuthenticated = !!localStorage.getItem('token');
 
   return (
     <div className="product-card">
