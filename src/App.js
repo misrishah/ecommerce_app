@@ -13,7 +13,10 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import { SearchProvider } from './context/SearchContext'; // ✅ Wrap your app with this
-
+import CustomerService from './pages/CustomerService/CustomerService';
+import Support from './pages/CustomerService/Support';
+import Returns from './pages/CustomerService/Returns';
+import ShippingInfo from './pages/CustomerService/ShippingInfo';
 import './App.css';
 
 // Public Route (used to block access for already logged-in users)
@@ -86,6 +89,12 @@ function AppContent() {
       <CheckoutPage />
     </ProtectedRoute>
   }/>
+
+  <Route path="/customer-service" element={<CustomerService />} />
+<Route path="/support" element={<Support />} />
+<Route path="/returns" element={<Returns />} />
+<Route path="/shipping-info" element={<ShippingInfo />} />
+
 <Route path="/order-confirmation" element={<ProtectedRoute><OrderConfirmationPage/></ProtectedRoute>} />
 
 
