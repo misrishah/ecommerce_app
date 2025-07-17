@@ -1,0 +1,33 @@
+/* Grid View */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 2rem 1rem;
+}
+
+/* List View Fix */
+.product-grid.list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* 👈 THIS gives vertical space between cards */
+  padding: 2rem 1rem;
+}
+
+/* Each Product Card */
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Just in case browser collapses margins */
+.product-card:not(:last-child) {
+  margin-bottom: 30px; /* 👈 Backup spacing for safety */
+}

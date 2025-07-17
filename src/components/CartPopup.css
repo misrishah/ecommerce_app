@@ -1,0 +1,88 @@
+/* src/components/CartPopup.css */
+.cart-popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  padding: 65px;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.cart-popup-content h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cart-item {
+  display: flex;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #b3afaf92;
+  padding-bottom: 10px;
+}
+
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 5px 0;
+}
+
+.quantity-controls button {
+  padding: 2px 5px;
+  font-size: 12px;
+}
+
+.remove-btn {
+  margin-top: 1px;
+  padding: 2px 4px;
+  font-size: 13px;
+  background-color: #930606 !important;
+  font-weight: 400;
+  color: white !important;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cart-total {
+  margin-top: 20px;
+  text-align: right;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cart-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px; /* spacing between buttons */
+  margin-top: 35px;
+}
+
+.checkout-btn,
+.close-btn {
+  flex: 1; /* Makes both buttons take equal width */
+  padding: 5px;
+  background-color: #4a148c;
+  color: white;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+

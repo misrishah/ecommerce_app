@@ -1,0 +1,58 @@
+.confirmation-page {
+  max-width: 600px;
+  margin: 100px auto 40px;
+  padding: 30px;
+  border: 1px solid #d4c2e3;
+  border-radius: 10px;
+  background-color: #f9f3fc;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.confirmation-page h1 {
+  color:  #2d045b;
+  margin-bottom: 2.5rem;
+  font-size:35px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.confirmation-page h2 {
+  color: #4a148c;
+  margin-bottom: 14px;
+  font-size: 26px;
+}
+
+.confirmation-page p {
+  color: #444;
+  font-size: 17px;
+  margin: 1px ;
+}
+
+.confirmation-page .back-home-btn {
+  margin-top: 30px;
+  padding: 10px 24px;
+  background-color: #4a148c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.confirmation-page li{
+   color: #444;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.continue-btn{
+  color: #7447ab;
+  margin: 20px;
+  font-size: 0.87rem;
+}
+.confirmation-page .back-home-btn:hover {
+  background-color: #7b2dbf;
+}

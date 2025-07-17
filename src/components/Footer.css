@@ -1,0 +1,137 @@
+.footer {
+  background-color: #f4f0fa;
+  color: #4a148c;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1130px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: nowrap; /* 💥 DO NOT WRAP in large screens */
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 0;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #4a148c;
+}
+
+.footer-section p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  color: #3a0b72c4;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #904ad6;
+}
+
+/* Newsletter Section */
+.newsletter-form.vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.newsletter-form.vertical input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.newsletter-form.vertical button {
+  all: unset;
+  padding: 12px 20px;
+  background-color: #4a148c;
+  color: white;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.newsletter-form.vertical button:hover {
+  background-color: #a67cc5;
+  transform: translateY(-2px);
+}
+
+/* Payment Icons */
+.payment-methods {
+  margin-top: 10px;
+}
+
+.payment-icons {
+  display: flex;
+  gap: 15px;
+  font-size: 32px;
+  color: #4a148c;
+  margin-top: 8px;
+}
+
+.payment-icons i:hover {
+  color: #a67cc5;
+  transition: color 0.3s ease;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid #d1b3f2;
+  padding-top: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ✅ Responsive Layout */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .newsletter-form.vertical {
+    max-width: 100%;
+  }
+}

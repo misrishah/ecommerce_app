@@ -1,0 +1,235 @@
+{
+  "users": [
+    {
+      "id": "bc84",
+      "firstName": "abc",
+      "lastName": "xyz",
+      "username": "abc.xyz",
+      "email": "ax@gmail.com",
+      "password": "ax@123",
+      "createdAt": "2025-06-04T11:10:23.873Z"
+    },
+    {
+      "id": "b19a",
+      "firstName": "India",
+      "lastName": "nic",
+      "username": "inic",
+      "email": "misri.s@indianic.com",
+      "password": "inic123",
+      "createdAt": "2025-06-04T12:14:06.044Z"
+    },
+    {
+      "id": "a794",
+      "firstName": "Misri",
+      "lastName": "Shah",
+      "username": "misri.03",
+      "email": "misri.shah03@gmail.com",
+      "password": "mi@034",
+      "createdAt": "2025-06-05T06:57:38.735Z"
+    },
+    {
+      "id": "c428",
+      "firstName": "asd",
+      "lastName": "qwe",
+      "username": "as.1",
+      "email": "ax1@gmail.com",
+      "password": "asd123",
+      "createdAt": "2025-06-05T12:49:30.631Z"
+    }
+  ],
+  "products": [
+  {
+    "id": 1,
+    "title": "Smart Watch",
+    "image": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c21hcnQlMjB3YXRjaHxlbnwwfHwwfHx8MA%3D%3D",
+    "price": 1700,
+    "rating": 4.2,
+    "createdAt": "2025-06-01T10:15:00Z"
+  },
+  {
+    "id": 2,
+    "title": "Wireless Headphones",
+    "image": "https://plus.unsplash.com/premium_photo-1679513691474-73102089c117?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2lyZWxlc3MlMjBoZWFkcGhvbmVzfGVufDB8fDB8fHww",
+    "price": 2499,
+    "rating": 4.5,
+    "createdAt": "2024-11-22T14:45:00Z"
+  },
+  {
+    "id": 3,
+    "title": "Bluetooth Speaker",
+    "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Ymx1ZXRvb3RoJTIwc3BlYWtlcnxlbnwwfHwwfHx8MA%3D%3D",
+    "price": 1399,
+    "rating": 4.0,
+    "createdAt": "2025-02-17T09:30:00Z"
+  },
+  {
+    "id": 4,
+    "title": "Camera",
+    "image": "https://images.unsplash.com/photo-1495707902641-75cac588d2e9?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNhbWVyYXxlbnwwfHwwfHx8MA%3D%3D",
+    "price": 8999,
+    "rating": 4.3,
+    "createdAt": "2024-09-05T11:10:00Z"
+  },
+  {
+    "id": 5,
+    "title": "Gaming Mouse",
+    "image": "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2FtaW5nJTIwbW91c2V8ZW58MHx8MHx8fDA%3D",
+    "price": 2100,
+    "rating": 4.1,
+    "createdAt": "2025-03-08T16:20:00Z"
+  },
+  {
+    "id": 6,
+    "title": "Mechanical Keyboard",
+    "image": "https://plus.unsplash.com/premium_photo-1679177183572-a4056053b8a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bWVjaGFuaWNhbCUyMGtleWJvYXJkfGVufDB8fDB8fHww",
+    "price": 1500,
+    "rating": 4.6,
+    "createdAt": "2024-12-12T18:40:00Z"
+  },
+  {
+    "id": 7,
+    "title": "Laptop Stand",
+    "image": "https://plus.unsplash.com/premium_photo-1683736986821-e4662912a70d?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bGFwdG9wJTIwc3RhbmR8ZW58MHx8MHx8fDA%3D",
+    "price": 800,
+    "rating": 4.0,
+    "createdAt": "2025-01-25T08:55:00Z"
+  },
+  {
+    "id": 8,
+    "title": "LED Desk Lamp",
+    "image": "https://images.unsplash.com/photo-1619608135352-868e8313e121?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGxlZCUyMGRlc2slMjBsYW1wJTIwaG9yaXpvbnRhbHxlbnwwfHwwfHx8MA%3D%3D",
+    "price": 1800,
+    "rating": 4.4,
+    "createdAt": "2024-10-30T13:05:00Z"
+  },
+  {
+    "id": 9,
+    "title": "External Hard Drive",
+    "image": "https://images.unsplash.com/photo-1581725645170-9a619a339553?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGV4dGVybmFsJTIwaGFyZCUyMGRyaXZlfGVufDB8fDB8fHww",
+    "price": 3500,
+    "rating": 4.5,
+    "createdAt": "2025-04-11T12:10:00Z"
+  },
+  {
+    "id": 10,
+    "title": "USB-C Hub",
+    "image": "https://images.unsplash.com/photo-1711056823627-64e9089d4a82?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dXNiJTIwY3xlbnwwfHwwfHx8MA%3D%3D",
+    "price": 999,
+    "rating": 4.2,
+    "createdAt": "2024-08-15T07:50:00Z"
+  },
+  {
+    "id": 11,
+    "title": "Noise Cancelling Earbuds",
+    "image": "https://images.unsplash.com/photo-1611864583067-b002fdc4fa29?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fG5vaXNlJTIwY2FuY2VsbGF0aW9uJTIwZWFyYnVyZHxlbnwwfHwwfHx8MA%3D%3D",
+    "price": 2000,
+    "rating": 4.3,
+    "createdAt": "2025-05-02T17:35:00Z"
+  },
+  {
+    "id": 12,
+    "title": "Portable Charger",
+    "image": "https://images.unsplash.com/photo-1706275399524-813e89914e43?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBvcnRhYmxlJTIwY2hhcmdlcnxlbnwwfHwwfHx8MA%3D%3D",
+    "price": 1500,
+    "rating": 4.0,
+    "createdAt": "2024-07-19T15:00:00Z"
+  },
+{
+      "id": 13,
+      "title": "4K Action Camera",
+      "image": "https://images.unsplash.com/photo-1677172954692-90cf8bdc91e6?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWN0aW9uJTIwY2FtZXJhfGVufDB8fDB8fHww",
+      "price": 16900,
+      "rating": 4.4,
+      "createdAt": "2025-06-05T11:30:00Z"
+    },
+    {
+      "id": 14,
+      "title": "Smart Home Plug",
+      "image": "https://images.unsplash.com/photo-1545259742-b4fd8fea67e4?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHNtYXJ0JTIwaG9tZSUyMHBsdWd8ZW58MHx8MHx8fDA%3D",
+      "price": 3799,
+      "rating": 4.2,
+      "createdAt": "2025-06-10T08:45:00Z"
+    },
+    {
+      "id": 15,
+      "title": "Ergonomic Office Chair",
+      "image": "https://plus.unsplash.com/premium_photo-1731966821478-fef27450b053?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZXJnb25vbWljJTIwb2ZmaWNlJTIwY2hhaXJ8ZW58MHwwfDB8fHww",
+      "price": 8900,
+      "rating": 4.6,
+      "createdAt": "2025-06-02T10:00:00Z"
+    },
+    {
+      "id": 16,
+      "title": "Smart LED Light Strip",
+      "image": "https://plus.unsplash.com/premium_photo-1675203632854-79855b1d92b0?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c21hcnQlMjBsZWQlMjBsaWdodCUyMHN0cmlwfGVufDB8MHwwfHx8MA%3D%3D",
+      "price": 1299,
+      "rating": 4.3,
+      "createdAt": "2025-06-12T12:20:00Z"
+    },
+    {
+      "id": 17,
+      "title": "Smart TV remote",
+      "image": "https://images.unsplash.com/photo-1591051475655-9bf83299edae?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNtYXJ0JTIwdHYlMjByZW1vdGV8ZW58MHwwfDB8fHww",
+      "price": 1400,
+      "rating": 4.1,
+      "createdAt": "2025-06-14T16:10:00Z"
+    },
+    {
+      "id": 18,
+      "title": "Adjustable video recorder",
+      "image": "https://images.unsplash.com/photo-1627065446205-f96ca18c38b2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWRqdXN0YWJsZSUyMG1vYmlsZSUyMGhvbGRlcnxlbnwwfDB8MHx8fDA%3D",
+      "price":3400,
+      "rating": 4.0,
+      "createdAt": "2025-06-09T09:25:00Z"
+    },
+    {
+      "id": 19,
+      "title": "Smart TV",
+      "image": "https://images.unsplash.com/photo-1615986200762-a1ed9610d3b1?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNtYXJ0JTIwdHZ8ZW58MHx8MHx8fDA%3D",
+      "price": 35000,
+      "rating": 4.2,
+      "createdAt": "2025-06-07T14:40:00Z"
+    },
+    {
+      "id": 20,
+      "title": "Magnetic Phone Mount",
+      "image": "https://media.istockphoto.com/id/1413812235/photo/hands-of-a-young-european-girl-sitting-in-a-car-with-a-black-interior-inserts-a-smartphone.jpg?s=1024x1024&w=is&k=20&c=Rsyr_Zr8bP9LPHAXiN_WgsWNqIsOIFKU3-74szNajNg=",
+      "price": 600,
+      "rating": 4.1,
+      "createdAt": "2025-06-11T13:55:00Z"
+    },
+    {
+      "id": 21,
+      "title": "Mini Tripod Stand",
+      "image": "https://images.unsplash.com/photo-1692152004105-d4c9bacd6923?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dHJpcG9kJTIwc3RhbmR8ZW58MHx8MHx8fDA%3D",
+      "price": 3050,
+      "rating": 4.0,
+      "createdAt": "2025-06-04T17:15:00Z"
+    },
+    {
+      "id": 22,
+      "title": "Piano",
+      "image": "https://images.unsplash.com/photo-1635043702882-1bd821a08d78?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlnaXRhbCUyMHBpYW5vfGVufDB8fDB8fHwwhttps://via.placeholder.com/150",
+      "price": 4500,
+      "rating": 3.9,
+      "createdAt": "2025-06-06T10:50:00Z"
+    },
+    {
+      "id": 23,
+      "title": "Tablet",
+      "image": "https://images.unsplash.com/photo-1672239069328-dd1535c0d78a?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aSUyMHBhZHxlbnwwfHwwfHx8MA%3D%3D",
+      "price":19800,
+      "rating": 4.3,
+      "createdAt": "2025-06-06T10:50:00Z"
+    },
+{
+      "id": 24,
+      "title": "Wired Mic",
+      "image": "https://images.unsplash.com/photo-1703144569611-8196c083bbc0?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZWxldHJvbmljJTIwbWljfGVufDB8fDB8fHww",
+      "price":2800,
+      "rating": 4.0,
+      "createdAt": "2025-06-06T10:50:00Z"
+    }
+
+]
+}

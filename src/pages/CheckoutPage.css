@@ -1,0 +1,460 @@
+/* Core Layout */
+.checkout-page {
+  max-width: 550px;
+  margin: 130px auto 50px;
+  padding: 40px;
+  border: 1px solid #1e0731;
+  border-radius: 10px;
+  background-color: #fafafa;
+  box-shadow: 1px 10px 52px rgba(32, 24, 41, 0.9);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title */
+.checkout-page h1 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 900;
+  color: #2d045b;
+  margin-bottom: 35px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Cart Summary */
+.checkout-summary h2 {
+  text-align: center;
+  font-size: 20px;
+  color: #4a148c;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.checkout-summary h3 {
+  text-align: center;
+  font-size: 18px;
+  color: #290e48;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.checkout-summary h3 span {
+  color: #2d045b;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+/* Cart Item */
+.checkout-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.checkout-item-image {
+  width: 210px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 12px rgba(17, 1, 22, 0.3);
+}
+
+.checkout-item h4 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.checkout-item p {
+  text-align: center;
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* Form Sections */
+.checkout-form h2 {
+  text-align: center;
+  color: #4a148c;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Form Group Container */
+.form-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* Input Fields and Select Dropdowns */
+.checkout-form input,
+.checkout-form textarea,
+.form-select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #4a148c74;
+  font-size: 14px;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Dropdown Specific Styling */
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a148c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  cursor: pointer;
+  color: #333;
+  position: relative;
+}
+
+.form-select:focus,
+.checkout-form input:focus,
+.checkout-form textarea:focus {
+  outline: none;
+  border-color: #4a148c;
+  box-shadow: 0 0 0 2px rgba(74, 20, 140, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Enhanced Cascading Dropdowns Container */
+.cascading-selects {
+  margin: 20px 0;
+  position: relative;
+}
+
+/* Cascading Form Groups with Connection Lines */
+.cascading-selects .form-group {
+  position: relative;
+  margin-bottom: 20px;
+  transform: translateX(0);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cascading-selects .form-group:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 10px;
+  background: linear-gradient(to bottom, #4a148c, #7e3fbf);
+  border-radius: 1px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.cascading-selects .form-group:hover::after {
+  opacity: 1;
+  height: 12px;
+  bottom: -16px;
+}
+
+/* Enhanced Disabled State for Cascading Dropdowns */
+.cascading-selects .form-select:disabled {
+  background-color: #f8f8f8;
+  color: #bbb;
+  cursor: not-allowed;
+  opacity: 0.5;
+  border-color: #e0e0e0;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23bbb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  transform: translateX(10px);
+}
+
+.cascading-selects .form-select:not(:disabled) {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Loading State with Enhanced Animation */
+.form-select.loading {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a148c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M21 12a9 9 0 11-6.219-8.56'/%3e%3c/svg%3e");
+  animation: spin 1s linear infinite;
+  border-color: #4a148c;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Placeholder Text for Cascading Selects */
+.cascading-selects .form-select option:first-child {
+  color: #999;
+  font-style: italic;
+}
+
+/* Enhanced Hover Effects for Cascading */
+.cascading-selects .form-select:hover:not(:disabled) {
+  border-color: #4a148c;
+  box-shadow: 0 2px 8px rgba(74, 20, 140, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Active/Focus States for Cascading */
+.cascading-selects .form-select:focus {
+  border-color: #4a148c;
+  box-shadow: 0 0 0 3px rgba(74, 20, 140, 0.1), 0 4px 12px rgba(74, 20, 140, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Dropdown Options Enhanced */
+.form-select option {
+  padding: 12px;
+  background-color: white;
+  color: #333;
+  font-size: 14px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.form-select option:hover {
+  background-color: #f4f0fa;
+}
+
+.form-select option:disabled {
+  color: #ccc;
+  background-color: #f9f9f9;
+}
+
+/* Sequential Animation for Cascading Enable */
+.cascading-selects .form-group.animate-in {
+  animation: slideInFromRight 0.5s ease-out;
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Disabled State Animation */
+.cascading-selects .form-group.animate-out {
+  animation: slideOutToRight 0.3s ease-in;
+}
+
+@keyframes slideOutToRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0.5;
+    transform: translateX(10px);
+  }
+}
+
+/* Standard Input and Select Styling */
+.checkout-form input:hover,
+.checkout-form textarea:hover {
+  border-color: #4a148c;
+}
+
+/* Placeholder Styling */
+.checkout-form input::placeholder {
+  color: #999;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* Error States */
+.checkout-form input.error,
+.checkout-form textarea.error,
+.form-select.error {
+  border-color:#930606  !important;
+  background-color: #fff7f7;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.error {
+  color: #930606 ;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 3px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-family: system-ui, sans-serif;
+  display: block;
+}
+
+/* Layout for card inputs */
+.card-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.card-row .form-group {
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+.card-row input {
+  width: 100%;
+}
+
+/* Button Styling */
+.checkout-form button,
+.pay-btn {
+  margin-top: 30px;
+  width: 100%;
+  padding: 12px;
+  background: #4a148c;
+  background-size: 200% 200%;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.checkout-form button:hover,
+.pay-btn:hover {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+  background-position: 100% 0;
+  transform: translateY(-2px);
+}
+
+.checkout-form button:active,
+.pay-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Checkout total styling enhancement */
+.checkout-total {
+  color: white;
+  padding: 15px;
+  text-align: center;
+  margin: 20px 0 30px 0;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Focus rings for accessibility */
+.form-select:focus-visible,
+.checkout-form input:focus-visible,
+.checkout-form textarea:focus-visible {
+  outline: 2px solid #4a148c;
+  outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .checkout-page {
+    margin: 100px auto 30px;
+    padding: 30px 20px;
+    max-width: 90%;
+  }
+  
+  .checkout-page h1 {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  
+  .checkout-summary h2 {
+    font-size: 18px;
+  }
+  
+  .checkout-summary h3 {
+    font-size: 16px;
+  }
+  
+  .checkout-item-image {
+    width: 180px;
+  }
+  
+  .card-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .card-row .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .checkout-form button,
+  .pay-btn {
+    font-size: 16px;
+    padding: 12px;
+  }
+  
+  .cascading-selects {
+    margin: 15px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkout-page {
+    padding: 20px 15px;
+    margin: 80px auto 20px;
+  }
+  
+  .checkout-page h1 {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+  
+  .checkout-item-image {
+    width: 150px;
+  }
+  
+  .checkout-form h2 {
+    font-size: 18px;
+  }
+  
+  .checkout-form input,
+  .checkout-form textarea,
+  .form-select {
+    font-size: 16px;
+    padding: 12px;
+  }
+  
+  .cascading-selects {
+    margin: 12px 0;
+  }
+  
+  .cascading-selects .form-group:not(:last-child)::after {
+    height: 8px;
+    bottom: -12px;
+  }
+}

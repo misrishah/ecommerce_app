@@ -1,0 +1,67 @@
+.home-page {
+  padding: 2rem;
+  color: #fff;
+}
+
+.section-title {
+  margin: 3rem 0 1rem;
+  text-align: center;
+}
+
+.section-title h2 {
+  font-size: 28px;
+  color: #ffe3ff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 9px 10px 10px rgba(0, 0, 0, 0.72);
+}
+
+.product-card h4{
+  color: #4a148c;
+  text-align: center;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.product-card p{
+  color: #341659d2;
+}
+
+
+.category-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+.category-card {
+  background: #fff;
+  color:#4a148c !important;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.8rem 1.2rem;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-card:hover {
+  background: #f3e8ff;
+  color: #4a148c;
+  transform: translateY(-2px);
+}
